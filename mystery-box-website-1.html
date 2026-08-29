@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mystery Box — a premium digital bundle with guaranteed digital value, useful resources, templates, productivity tools, exclusive discounts and surprise bonus content.">
+<title>Mystery Box — Unlock Something Valuable</title>
+<style>
+:root{
+  --bg:#050507; --surface:#0d0d12; --surface2:#13131a; --text:#f7f7fb;
+  --muted:#a6a6b5; --line:rgba(255,255,255,.09); --accent:#9b7cff;
+  --accent2:#29e7c5; --max:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 80% 5%,rgba(155,124,255,.18),transparent 28rem),
+    radial-gradient(circle at 0% 35%,rgba(41,231,197,.08),transparent 24rem),
+    var(--bg);
+  color:var(--text); line-height:1.55; overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(calc(100% - 32px),var(--max));margin:auto}
+header{
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);
+  background:rgba(5,5,7,.72);border-bottom:1px solid var(--line)
+}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;letter-spacing:-.04em;font-size:19px}
+.logo span{color:var(--accent)}
+.nav-pill{font-size:12px;color:#ddd;border:1px solid var(--line);padding:8px 12px;border-radius:999px}
+.hero{padding:72px 0 58px;text-align:center}
+.badge{
+  display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(155,124,255,.3);
+  background:rgba(155,124,255,.08);padding:8px 12px;border-radius:999px;
+  color:#ddd5ff;font-size:12px;font-weight:700;margin-bottom:20px
+}
+h1{font-size:clamp(42px,12vw,76px);line-height:.98;letter-spacing:-.065em;max-width:850px;margin:auto}
+.gradient{background:linear-gradient(100deg,#fff 15%,#c7baff 50%,#78f6df 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:650px;margin:22px auto 0;color:var(--muted);font-size:16px}
+.cta{
+  display:inline-flex;justify-content:center;align-items:center;gap:10px;margin-top:28px;
+  min-height:54px;padding:0 22px;border-radius:15px;background:#fff;color:#09090b;
+  font-weight:900;box-shadow:0 0 35px rgba(155,124,255,.24);transition:.2s
+}
+.cta:hover{transform:translateY(-2px);box-shadow:0 0 50px rgba(155,124,255,.4)}
+.trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px;color:#858594;font-size:11px}
+.section{padding:62px 0}
+.eyebrow{color:var(--accent2);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;margin-bottom:10px}
+h2{font-size:clamp(30px,8vw,48px);letter-spacing:-.045em;line-height:1.05}
+.section-intro{color:var(--muted);max-width:620px;margin-top:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
+  border:1px solid var(--line);border-radius:20px;padding:20px;min-height:160px;
+  position:relative;overflow:hidden
+}
+.card:after{content:"";position:absolute;width:100px;height:100px;background:rgba(155,124,255,.13);filter:blur(35px);right:-35px;bottom:-35px}
+.icon{font-size:25px;margin-bottom:22px}
+.card h3{font-size:16px}.card p{font-size:13px;color:var(--muted);margin-top:5px}
+.value{
+  margin-top:28px;border:1px solid rgba(41,231,197,.18);background:rgba(41,231,197,.05);
+  border-radius:24px;padding:25px
+}
+.value-row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px}
+.value-row:last-child{border-bottom:0}.value-row span:last-child{color:#d7d7df;font-weight:800}
+.highlight{color:var(--accent2)!important}
+.steps{display:grid;gap:10px;margin-top:26px}
+.step{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);background:var(--surface);border-radius:18px;padding:18px}
+.num{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:#fff;color:#09090b;font-weight:900;flex:none}
+.step h3{font-size:15px}.step p{font-size:13px;color:var(--muted);margin-top:3px}
+.bonus{
+  border:1px solid rgba(155,124,255,.28);background:
+  radial-gradient(circle at 90% 20%,rgba(155,124,255,.22),transparent 15rem),
+  linear-gradient(145deg,#101016,#0a0a0d);border-radius:28px;padding:28px;margin-top:26px
+}
+.bonus-mark{font-size:48px}.bonus p{color:var(--muted);margin-top:10px;font-size:14px}
+.notice{font-size:12px;color:#bcbcca;margin-top:18px;padding:12px;border-left:2px solid var(--accent)}
+.reviews{display:grid;gap:12px;margin-top:26px}
+.review{padding:20px;border:1px solid var(--line);background:var(--surface);border-radius:18px}
+.stars{letter-spacing:2px;font-size:12px}.review p{margin:10px 0;color:#ddd;font-size:14px}.review small{color:#777783}
+.faq{margin-top:24px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:15px}
+summary:after{content:"+";color:var(--accent)}
+details[open] summary:after{content:"−"} details p{color:var(--muted);font-size:14px;margin-top:10px;max-width:700px}
+.final{text-align:center;padding:76px 0 82px}
+.final h2{max-width:650px;margin:auto}
+footer{border-top:1px solid var(--line);padding:30px 0 90px;color:#777783;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a:hover{color:#fff}
+.bottom-cta{
+  position:fixed;left:12px;right:12px;bottom:12px;z-index:30;
+  display:flex;justify-content:center;align-items:center;min-height:52px;border-radius:15px;
+  background:#fff;color:#08080a;font-weight:900;box-shadow:0 8px 35px rgba(0,0,0,.55)
+}
+@media(min-width:700px){
+  .container{width:min(calc(100% - 48px),var(--max))}
+  .hero{padding:110px 0 90px}.section{padding:88px 0}
+  .grid{grid-template-columns:repeat(3,1fr);gap:16px}.reviews{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(4,1fr)}.step{display:block}.num{margin-bottom:22px}
+  .bottom-cta{display:none}.hero p{font-size:18px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">Mystery<span>Box</span></a>
+    <span class="nav-pill">Digital • ₹499</span>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="badge">✦ A curated digital surprise</div>
+    <h1>Something Valuable Is <span class="gradient">Waiting Inside 🎁</span></h1>
+    <p>Get the ₹499 Digital Mystery Box — a curated collection of useful digital resources, templates, productivity tools, exclusive deals and surprise bonus content.</p>
+    <a class="cta" href="#buy">Unlock My Box – ₹499 <span>→</span></a>
+    <div class="trust"><span>✓ Guaranteed digital value</span><span>✓ Instant digital access</span><span>✓ No gambling</span></div>
+  </div>
+</section>
+
+<section class="section" id="inside">
+<div class="container">
+  <div class="eyebrow">What's inside</div>
+  <h2>More useful. Less clutter.</h2>
+  <p class="section-intro">Every box is designed around practical digital value you can actually use for study, work, content and everyday productivity.</p>
+  <div class="grid">
+    <article class="card"><div class="icon">📚</div><h3>Digital Resources</h3><p>Curated guides, resources and useful digital material.</p></article>
+    <article class="card"><div class="icon">🧩</div><h3>Templates</h3><p>Ready-to-use templates to save time and get started faster.</p></article>
+    <article class="card"><div class="icon">⚡</div><h3>Productivity Tools</h3><p>Practical tools and systems for smarter everyday work.</p></article>
+    <article class="card"><div class="icon">🏷️</div><h3>Exclusive Deals</h3><p>Selected discounts and offers from digital products or services.</p></article>
+    <article class="card"><div class="icon">🎁</div><h3>Surprise Bonuses</h3><p>Extra digital content selected to add unexpected value.</p></article>
+    <article class="card"><div class="icon">✨</div><h3>Curated Drops</h3><p>Fresh, useful digital finds bundled into one simple experience.</p></article>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="eyebrow">Why ₹499?</div>
+  <h2>One box. A guaranteed digital experience.</h2>
+  <p class="section-intro">You're paying for a curated digital bundle — not a chance to win money. The contents provide guaranteed digital value, while the bonus element simply adds surprise.</p>
+  <div class="value">
+    <div class="value-row"><span>Curated digital resources</span><span>Included</span></div>
+    <div class="value-row"><span>Templates & productivity tools</span><span>Included</span></div>
+    <div class="value-row"><span>Exclusive discounts / deals</span><span>Included</span></div>
+    <div class="value-row"><span>Surprise bonus content</span><span class="highlight">Included</span></div>
+    <div class="value-row"><span>Your price</span><span>₹499</span></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="eyebrow">How it works</div>
+  <h2>Four simple steps.</h2>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>Buy</h3><p>Complete your ₹499 purchase.</p></div>
+    <div class="step"><div class="num">2</div><h3>Unlock</h3><p>Receive access instructions digitally.</p></div>
+    <div class="step"><div class="num">3</div><h3>Discover</h3><p>Open your curated digital box.</p></div>
+    <div class="step"><div class="num">4</div><h3>Use</h3><p>Put the resources, tools and bonuses to work.</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="bonus">
+    <div class="bonus-mark">🎁</div>
+    <div class="eyebrow">Mystery bonus</div>
+    <h2>A little surprise, without the gamble.</h2>
+    <p>Your box includes surprise bonus content chosen as an extra part of the digital experience. The Mystery Bonus is <strong>not cash, a lottery, gambling, betting or an investment product</strong>. You receive guaranteed digital content regardless of the bonus.</p>
+    <div class="notice">Transparent by design: the excitement comes from discovering useful content — not from risking money for a cash prize.</div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="eyebrow">Customer reviews</div>
+  <h2>What customers are saying.</h2>
+  <p class="section-intro">Placeholder reviews for the website prototype — replace these with verified customer feedback before publishing.</p>
+  <div class="reviews">
+    <article class="review"><div class="stars">★★★★★</div><p>“Really liked how everything was organized. The templates were genuinely useful.”</p><small>— Placeholder Customer</small></article>
+    <article class="review"><div class="stars">★★★★★</div><p>“The experience felt simple and premium. I found a few resources I’ll actually keep using.”</p><small>— Placeholder Customer</small></article>
+    <article class="review"><div class="stars">★★★★☆</div><p>“Nice concept and easy access. The bonus made opening the box fun.”</p><small>— Placeholder Customer</small></article>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="eyebrow">FAQ</div>
+  <h2>Questions, answered.</h2>
+  <div class="faq">
+    <details><summary>What is the Mystery Box?</summary><p>A ₹499 digital bundle containing useful resources, templates, productivity tools, exclusive discounts and surprise bonus content.</p></details>
+    <details><summary>What do I receive?</summary><p>You receive digital content included with your purchase. The exact contents can vary as the box is curated to keep the discovery experience fresh, while guaranteed digital value remains part of the product.</p></details>
+    <details><summary>How do I access it?</summary><p>After purchase, you'll receive digital access instructions through the delivery method specified at checkout.</p></details>
+    <details><summary>Is it a physical product?</summary><p>No. The Mystery Box is a digital product. Nothing physical is shipped.</p></details>
+    <details><summary>Can I get a refund?</summary><p>Refund eligibility depends on the published Refund Policy and whether digital access has already been delivered or used. Please review the policy before purchase.</p></details>
+  </div>
+</div>
+</section>
+
+<section class="final" id="buy">
+<div class="container">
+  <div class="eyebrow">Your box is ready</div>
+  <h2>Ready to Open Your Box?</h2>
+  <p class="section-intro" style="margin-left:auto;margin-right:auto;text-align:center">Get the ₹499 digital experience and discover useful resources, tools and surprise content.</p>
+  <a class="cta" href="YOUR_CHECKOUT_URL">Get My Mystery Box – ₹499 <span>→</span></a>
+  <p style="color:#70707d;font-size:11px;margin-top:14px">Replace the checkout URL with your real payment/checkout page before launch.</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-inner">
+  <div>© 2026 Mystery Box. Digital product.</div>
+  <div class="footer-links">
+    <a href="#contact">Contact</a>
+    <a href="TERMS_URL">Terms & Conditions</a>
+    <a href="REFUND_URL">Refund Policy</a>
+    <a href="PRIVACY_URL">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+<a class="bottom-cta" href="#buy">Get My Mystery Box – ₹499</a>
+</body>
+</html>
